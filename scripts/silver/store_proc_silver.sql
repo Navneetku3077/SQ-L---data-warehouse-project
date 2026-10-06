@@ -13,7 +13,7 @@ None.
 This stored procedure does not accept any parameter or return any values.
 Usage example:
 EXEC silver.load_silver;
-==========================================================================
+==========================================================================*/
 create or alter procedure silver_load_silver as
 begin
 	declare @start_time datetime,@end_time datetime , @batch_start_time datetime ,@batch_end_time datetime;
@@ -58,7 +58,7 @@ begin
 		/*Transforming bronze.crm_prd_info */
 		set @start_time =getdate()
 		print'>> truncating table: silver.crm_prd_info';
-		truncate table silver.crm_cust_info;
+		truncate table silver.crm_prd_info;
 		print'>> inserting data into: silver.crm_prd_info';
 		insert into silver.crm_prd_info(
 			prd_id,
@@ -139,7 +139,7 @@ begin
 		/* tranforming bronze.erp_cust_az12*/
 		set @start_time =getdate()
 		print'>> truncating table: silver.erp_cust_az12';
-		truncate table silver.crm_sales_details;
+		truncate table silver.erp_cust_az12;
 		print'>> inserting data into: silver.erp_cust_az12';
 
 		insert into silver.erp_cust_az12(
@@ -167,7 +167,7 @@ begin
 		/* transforming bronze.erp_loc_a101*/
 		set @start_time =getdate()
 		print'>> truncating table: silver.erp_loc_a101';
-		truncate table silver.crm_sales_details;
+		truncate table silver.erp_loc_a101;
 		print'>> inserting data into: silver.erp_loc_a101';
 
 		insert into silver.erp_loc_a101
@@ -191,7 +191,7 @@ begin
 		/*transforming bronze.erp_px_cat_g1v2*/
 		set @start_time =getdate()
 		print'>> truncating table: silver.erp_PX_CAT_G1V2';
-		truncate table silver.crm_sales_details;
+		truncate table bronze.erp_px_cat_g1v2;
 		print'>> inserting data into: silver.erp_PX_CAT_G1V2';
 
 		insert into silver.erp_PX_CAT_G1V2
