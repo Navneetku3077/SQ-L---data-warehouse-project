@@ -191,7 +191,7 @@ begin
 		/*transforming bronze.erp_px_cat_g1v2*/
 		set @start_time =getdate()
 		print'>> truncating table: silver.erp_PX_CAT_G1V2';
-		truncate table bronze.erp_px_cat_g1v2;
+		truncate table silver.erp_px_cat_g1v2;
 		print'>> inserting data into: silver.erp_PX_CAT_G1V2';
 
 		insert into silver.erp_PX_CAT_G1V2
